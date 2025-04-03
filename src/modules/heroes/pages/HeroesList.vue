@@ -5,6 +5,7 @@ import type { Hero, HeroId } from '@/types/Hero.ts'
 const props = defineProps<{
   hero: Hero[]
   onDelete: (id: HeroId) => Promise<void>
+  isLoading: boolean
 }>()
 const emit = defineEmits<{
   (e: 'editHero', hero: Hero): void
@@ -28,7 +29,15 @@ const confirmDelete = async (hero: Hero) => {
   <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6">
     <h2 class="text-2xl font-semibold text-white mb-6">Lista de Héroes</h2>
     <div class="overflow-x-auto">
-      <table class="w-full">
+      <div v-if="!props.isLoading" class="text-center text-white">
+        <h1 class="text-3xl">
+          Espere Por favor
+        </h1>
+        <h3 class="animate-pulse">
+          Cargando Heroes...
+        </h3>
+      </div>
+      <table v-else class="w-full">
         <thead>
         <tr class="text-left border-b border-white/20">
           <th class="pb-4 text-gray-300">Nombre</th>
@@ -48,9 +57,9 @@ const confirmDelete = async (hero: Hero) => {
           <td class="py-4 text-white">{{ hero.power }}</td>
           <td class="py-4 text-white">{{ hero.level }}</td>
           <td class="py-4">
-                  <span :class="hero.isAlive ? 'bg-green-500' : 'bg-red-500'" class="px-2 py-1 rounded-full text-xs text-white">
-                    {{ hero.isAlive ? 'Activo' : 'Inactivo' }}
-                  </span>
+                <span :class="hero.isAlive ? 'bg-green-500' : 'bg-red-500'" class="px-2 py-1 rounded-full text-xs text-white">
+                  {{ hero.isAlive ? 'Activo' : 'Inactivo' }}
+                </span>
           </td>
           <td class="py-4">
             <div class="flex gap-2">
@@ -73,6 +82,7 @@ const confirmDelete = async (hero: Hero) => {
       </table>
     </div>
   </div>
+
 </template>
 
 <style scoped>

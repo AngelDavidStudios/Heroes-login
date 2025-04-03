@@ -1,10 +1,12 @@
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import type { Hero, HeroId } from '@/types/Hero.ts'
 import { createHero, deleteHero, getHeroes, updateHero } from '@/api/apiHero.ts'
 
 export const useHeroes = () => {
   const heroes = ref<Hero[]>([]);
   const selectedHero = ref<Hero | null>(null)
+
+  const isLoading = computed( () => heroes.value.length !== 0);
 
   const fetchHeroes = async () => {
     try {
@@ -49,6 +51,7 @@ export const useHeroes = () => {
 
   return {
     heroes,
+    isLoading,
     selectedHero,
     fetchHeroes,
     saveHero,

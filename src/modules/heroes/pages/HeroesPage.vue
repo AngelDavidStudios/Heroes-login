@@ -5,7 +5,7 @@ import { useHeroes } from '@/composables/useHeroes.ts'
 import HeroesForm from '@/modules/heroes/pages/HeroesForm.vue'
 import HeroesList from '@/modules/heroes/pages/HeroesList.vue'
 
-const { heroes, selectedHero, saveHero, patchHero, removeHero, fetchHeroes } = useHeroes()
+const { heroes, selectedHero, saveHero, patchHero, removeHero, fetchHeroes, isLoading } = useHeroes()
 
 const handleEdit = (hero: Hero) => {
   selectedHero.value = hero
@@ -14,6 +14,7 @@ const handleEdit = (hero: Hero) => {
 const resetSelectedHero = () => {
   selectedHero.value = null
 }
+
 </script>
 
 <template>
@@ -28,7 +29,8 @@ const resetSelectedHero = () => {
       <!-- Heroes List -->
       <HeroesList :hero="heroes"
                   :on-delete="removeHero"
-                  @editHero="handleEdit"/>
+                  :is-loading="isLoading"
+                  @editHero="handleEdit" />
 </template>
 
 <style scoped>
