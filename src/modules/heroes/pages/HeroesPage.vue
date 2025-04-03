@@ -4,6 +4,7 @@ import type { Hero } from '@/types/Hero.ts'
 import { useHeroes } from '@/composables/useHeroes.ts'
 import HeroesForm from '@/modules/heroes/pages/HeroesForm.vue'
 import HeroesList from '@/modules/heroes/pages/HeroesList.vue'
+import { UserButton } from '@clerk/vue'
 
 const { heroes, selectedHero, saveHero, patchHero, removeHero, fetchHeroes } = useHeroes()
 
@@ -19,11 +20,15 @@ const resetSelectedHero = () => {
 <template>
   <div class="min-h-screen bg-gradient-to-br from-blue-950 via-green-900 to-blue-950 p-8">
     <div class="max-w-6xl mx-auto">
-
       <!-- Header -->
-      <header class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-white mb-2">My Hero Academia</h1>
-        <p class="text-gray-300">Sistema de Gestión de Héroes</p>
+      <header class="flex items-center mb-5">
+        <div class="text-center justify-center w-full" >
+          <h1 class="text-4xl font-bold text-white mb-2">My Hero Academia</h1>
+          <p class="text-gray-300">Sistema de Gestión de Héroes</p>
+        </div>
+        <nav class="ml-auto space-x-4 flex items-center h-10 sm:space-x-6">
+          <UserButton after-sign-out-url="/auth" />
+        </nav>
       </header>
 
       <!-- Form Section -->
