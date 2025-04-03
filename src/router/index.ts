@@ -5,11 +5,17 @@ import HeroesPage from '@/modules/heroes/pages/HeroesPage.vue'
 const router = createRouter({
   history: createWebHistory( import.meta.env.BASE_URL ),
   routes: [
+    // Landing
     {
       path: '/',
       name: 'LandingHeroes',
       props: true,
       component: HeroesPage
+    },
+
+    //Auth
+    {
+
     }
   ]
 })
