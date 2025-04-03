@@ -21,6 +21,7 @@ const router = createRouter({
     {
       path: '/auth',
       name: 'LandingAuth',
+      redirect: { name: 'Login' },
       component: AuthLanding,
       children: [
         {
