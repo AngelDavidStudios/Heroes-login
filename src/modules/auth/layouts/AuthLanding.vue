@@ -21,10 +21,8 @@
       </div>
     </div>
     <div class="flex w-full lg:w-1/2 justify-center items-center bg-white space-y-8">
-      <div class="w-full px-8 md:px-32 lg:px-24">
         <!-- Right: Login & Register Form -->
         <RouterView />
-      </div>
     </div>
   </div>
 </template>
