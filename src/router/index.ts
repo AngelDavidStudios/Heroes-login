@@ -8,6 +8,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'LandingHeroes',
+      props: true,
       component: HeroesPage
     }
   ]

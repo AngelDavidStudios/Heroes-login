@@ -2,7 +2,7 @@ import axios from 'axios'
 import type { Hero, HeroId } from '@/types/Hero.ts'
 
 const apiHero = axios.create({
-  baseURL: import.meta.env.API_URL_HEROES_AWSLAMBDA
+  baseURL: import.meta.env.VITE_API_HERO_URL
 })
 
 export const getHeroes = async (): Promise<Hero[]> => {
