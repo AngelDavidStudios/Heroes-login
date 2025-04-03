@@ -4,9 +4,11 @@ import type { Hero } from '@/types/Hero.ts'
 import { useHeroes } from '@/composables/useHeroes.ts'
 import HeroesForm from '@/modules/heroes/pages/HeroesForm.vue'
 import HeroesList from '@/modules/heroes/pages/HeroesList.vue'
-import { UserButton } from '@clerk/vue'
+import { UserButton, useAuth } from '@clerk/vue'
+import { isAuthGuard } from '@/modules/auth/guards/is-auth.guard.ts'
 
 const { heroes, selectedHero, saveHero, patchHero, removeHero, fetchHeroes } = useHeroes()
+const { isSignedIn } = useAuth()
 
 const handleEdit = (hero: Hero) => {
   selectedHero.value = hero
@@ -15,6 +17,7 @@ const handleEdit = (hero: Hero) => {
 const resetSelectedHero = () => {
   selectedHero.value = null
 }
+isAuthGuard(isSignedIn.value)
 </script>
 
 <template>
@@ -43,6 +46,15 @@ const resetSelectedHero = () => {
       <HeroesList :hero="heroes"
                   :on-delete="removeHero"
                   @editHero="handleEdit"/>
+
+      <!-- Footer -->
+      <footer class="flex items-center h-14 px-4 border-t border-gray-300 sm:h-16 md:px-6 lg:px-8">
+        <p class="flex-1 text-sm text-white text-center">
+          © {{ new Date().getFullYear() }} Angel David Studios. Derechos reservados
+        </p>
+      </footer>
+      <!-- Fin Footer -->
+
     </div>
   </div>
 </template>

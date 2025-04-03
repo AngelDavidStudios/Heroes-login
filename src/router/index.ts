@@ -5,7 +5,6 @@ import LoginPage from '@/modules/auth/pages/LoginPage.vue'
 import RegisterPage from '@/modules/auth/pages/RegisterPage.vue'
 import NotFound404 from '@/modules/common/pages/NotFound404.vue'
 
-
 const router = createRouter({
   history: createWebHistory( import.meta.env.BASE_URL ),
   routes: [

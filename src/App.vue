@@ -1,5 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
 
+import { ClerkLoaded } from '@clerk/vue'
+
+</script>
 <template>
-  <RouterView />
+  <ClerkLoaded >
+    <RouterView />
+  </ClerkLoaded>
 </template>
