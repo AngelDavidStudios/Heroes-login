@@ -1,12 +1,5 @@
 <script setup lang="ts">
 
-import { UserButton, useAuth } from '@clerk/vue'
-import { isAuthGuard } from '@/modules/auth/guards/is-auth.guard.ts'
-
-const { isSignedIn } = useAuth()
-
-isAuthGuard(isSignedIn.value)
-
 </script>
 
 <template>

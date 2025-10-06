@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import { Authenticator } from '@aws-amplify/ui-vue'
 </script>
 
 <template>
@@ -13,7 +14,9 @@
       </div>
     <div class="flex w-full lg:w-1/2 justify-center items-center bg-white space-y-8">
         <!-- Right: Login & Register Form -->
+      <authenticator>
         <RouterView />
+      </authenticator>
     </div>
   </div>
 </template>
