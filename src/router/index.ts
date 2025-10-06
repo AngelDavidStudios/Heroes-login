@@ -20,12 +20,12 @@ const router = createRouter({
         {
           path: 'heroes',
           name: 'Heroes',
-          component: HeroesPage
+          component: HeroesPage,
         },
         {
           path: 'contact',
           name: 'Contact',
-          component: ContactPage
+          component: ContactPage,
         }
       ]
     },
@@ -34,20 +34,7 @@ const router = createRouter({
     {
       path: '/auth',
       name: 'LandingAuth',
-      redirect: { name: 'Login' },
-      component: AuthLanding,
-      children: [
-        {
-          path: 'login',
-          name: 'Login',
-          component: LoginPage
-        },
-        {
-          path: 'register',
-          name: 'Register',
-          component: RegisterPage
-        }
-      ]
+      component: AuthLanding
     },
 
     // Not Found
