@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HeroesPage from '@/modules/heroes/pages/HeroesPage.vue'
 import AuthLanding from '@/modules/auth/layouts/AuthLanding.vue'
-import LoginPage from '@/modules/auth/pages/LoginPage.vue'
-import RegisterPage from '@/modules/auth/pages/RegisterPage.vue'
 import NotFound404 from '@/modules/common/pages/NotFound404.vue'
 import HeroesLanding from '@/modules/heroes/layouts/HeroesLanding.vue'
 import ContactPage from '@/modules/heroes/pages/ContactPage.vue'
