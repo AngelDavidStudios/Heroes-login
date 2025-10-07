@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HeroesPage from '@/modules/heroes/pages/HeroesPage.vue'
 import AuthLanding from '@/modules/auth/layouts/AuthLanding.vue'
-import LoginPage from '@/modules/auth/pages/LoginPage.vue'
-import RegisterPage from '@/modules/auth/pages/RegisterPage.vue'
 import NotFound404 from '@/modules/common/pages/NotFound404.vue'
 import HeroesLanding from '@/modules/heroes/layouts/HeroesLanding.vue'
 import ContactPage from '@/modules/heroes/pages/ContactPage.vue'
@@ -20,12 +18,12 @@ const router = createRouter({
         {
           path: 'heroes',
           name: 'Heroes',
-          component: HeroesPage
+          component: HeroesPage,
         },
         {
           path: 'contact',
           name: 'Contact',
-          component: ContactPage
+          component: ContactPage,
         }
       ]
     },
@@ -34,20 +32,7 @@ const router = createRouter({
     {
       path: '/auth',
       name: 'LandingAuth',
-      redirect: { name: 'Login' },
-      component: AuthLanding,
-      children: [
-        {
-          path: 'login',
-          name: 'Login',
-          component: LoginPage
-        },
-        {
-          path: 'register',
-          name: 'Register',
-          component: RegisterPage
-        }
-      ]
+      component: AuthLanding
     },
 
     // Not Found

@@ -1,11 +1,18 @@
 <script setup lang="ts">
 
-import { UserButton, useAuth } from '@clerk/vue'
 import { isAuthGuard } from '@/modules/auth/guards/is-auth.guard.ts'
+import { useRouter } from 'vue-router'
+import { signOut } from 'aws-amplify/auth';
 
-const { isSignedIn } = useAuth()
 
-isAuthGuard(isSignedIn.value)
+isAuthGuard({redirectName:'LandingAuth'})
+
+const router = useRouter();
+
+async function doLogout() {
+  await signOut();
+  router.replace({ name: 'LandingAuth' });
+}
 
 </script>
 
@@ -21,7 +28,9 @@ isAuthGuard(isSignedIn.value)
         <nav class="ml-auto space-x-4 flex items-center h-10 sm:space-x-6 text-xl text-amber-50">
           <RouterLink :to="{ name: 'Heroes' }"> Heroes </RouterLink>
           <RouterLink :to="{ name: 'Contact' }"> Contact </RouterLink>
-          <UserButton after-sign-out-url="/auth" />
+          <button @click="doLogout">
+            Salir
+          </button>
         </nav>
       </header>
 
